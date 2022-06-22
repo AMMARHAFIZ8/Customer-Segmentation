@@ -18,6 +18,9 @@ from sklearn.linear_model import LogisticRegression
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras import Input
+
+from  sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
+
 from tensorflow.keras.utils import plot_model
 from tensorflow.keras.layers import BatchNormalization 
 from tensorflow.keras.callbacks import TensorBoard,EarlyStopping 
@@ -238,7 +241,6 @@ training_acc = hist.history['acc']
 validation_acc = hist.history['val_acc']
 validation_loss = hist.history['val_loss']
 
-import matplotlib.pyplot as plt
 
 plt.figure()
 plt.plot(training_loss)
@@ -258,10 +260,6 @@ plt.show()
 
 results = model.evaluate(X_test,y_test)
 print(results) # loss and acc metrics
-
-from  sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
-import matplotlib.pyplot as plt
-import numpy as np
 
 # pred_y = classifier.predict(x_test) # to get pred_y and compared with
 
