@@ -1,5 +1,5 @@
 # Customer Segmentation
 
 ### Model
-![alt text]()
+![alt text](https://github.com/AMMARHAFIZ8/Customer-Segmentation/blob/main/model.png)
  
