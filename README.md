@@ -1,2 +1,5 @@
-# Customer-Segmentation
+# Customer Segmentation
+
+### Model
+![alt text]()
  
