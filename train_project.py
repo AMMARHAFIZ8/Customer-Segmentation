@@ -13,10 +13,10 @@ import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 import pickle
 
-from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
-from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, Dropout
+from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras import Input
 from tensorflow.keras.utils import plot_model
 from tensorflow.keras.layers import BatchNormalization 
@@ -185,6 +185,8 @@ X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.3,
                                                     random_state=123)
 
 
+#%% model development
+
 # # Machine Learning
 
 # def simple_two_layer_model(nb_class,nb_features,drop_rate=0.2,num_node=32):
@@ -201,10 +203,10 @@ num_node=32
 
 model =  Sequential() # To create a container
 model.add(Input(shape=nb_features))
-model.add(Dense(num_node,activation='relu',name='Hidden_Layer1'))
+model.add(Dense(num_node,activation='linear',name='Hidden_Layer1'))
 model.add(BatchNormalization())
 model.add(Dropout(drop_rate))
-model.add(Dense(num_node,activation='relu',name='Hidden_Layer2'))
+model.add(Dense(num_node,activation='linear',name='Hidden_Layer2'))
 model.add(BatchNormalization())
 model.add(Dropout(drop_rate))
 # model.add(Dense(num_node,activation='relu',name='Hidden_Layer3'))
@@ -253,7 +255,7 @@ plt.show()
 #%% model evaluation
 
 results = model.evaluate(X_test,y_test)
-print(results)
+print(results) # loss and acc metrics
 
 from  sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
@@ -275,16 +277,18 @@ cm = confusion_matrix(true_y, pred_y)
 cr = classification_report(true_y, pred_y)
 print(cm)
 
+label=['0','1']
+disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=label)
+disp.plot(cmap=plt.cm.Reds)
+plt.show()
+
+#%% Model Architecture
+
+plot_model(model,show_shapes=True, show_layer_names=(True))
 
 #%% model saving
 
 model.save(MODEL_SAVE_PATH)
-
-#%%
-
-plot_model(model,show_shapes=True, show_layer_names=(True))
-
-
 
 
 
