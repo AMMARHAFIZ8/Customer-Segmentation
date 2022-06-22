@@ -118,6 +118,8 @@ df['term_deposit_subscribed'] = df['term_deposit_subscribed'].fillna(df['term_de
 
 df.info()
 df.describe().T
+msno.matrix(df) #to visualize Nans in the data
+msno.bar(df) #to visualize Nans in the data
 
 #Categorical vs Categorical data using Cramer's V
 for cat in categorical:
@@ -276,6 +278,7 @@ true_y = np.argmax(y_test,axis=1)
 cm = confusion_matrix(true_y, pred_y)
 cr = classification_report(true_y, pred_y)
 print(cm)
+print(cr)
 
 label=['0','1']
 disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=label)
