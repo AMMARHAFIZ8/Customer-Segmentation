@@ -258,7 +258,7 @@ plt.show()
 
 #%% model evaluation
 
-results = model.evaluate(X_test,y_test)
+results = model.evaluate(model, X_test,y_test,label=['0','1'])
 print(results) # loss and acc metrics
 
 # pred_y = classifier.predict(x_test) # to get pred_y and compared with
