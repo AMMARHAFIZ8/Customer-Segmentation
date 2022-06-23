@@ -49,7 +49,7 @@ from sklearn.model_selection import train_test_split
 CSV_PATH = os.path.join(os.getcwd(),'train.csv')
 log_dir = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 LOG_FOLDER_PATH = os.path.join(os.getcwd(),'log',log_dir)
-OHE_PICKLE_PATH = os.path.join(os.getcwd(),'ohe.pkl')
+OHE_PATH = os.path.join(os.getcwd(),'ohe.pkl')
 MODEL_SAVE_PATH = os.path.join(os.getcwd(),'model.h5')
 #%% EDA
 
