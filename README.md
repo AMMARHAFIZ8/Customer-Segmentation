@@ -37,4 +37,4 @@ val_acc: 0.8956
 ![alt text](https://github.com/AMMARHAFIZ8/Customer-Segmentation/blob/main/model.png)
 
 
-[Credit]([https://www.kaggle.com/datasets/kunalgupta2616/hackerearth-customer-segmentation-hackathon])
+[Credit](https://www.kaggle.com/datasets/kunalgupta2616/hackerearth-customer-segmentation-hackathon)
